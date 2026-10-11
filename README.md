@@ -74,7 +74,7 @@ offering high salaries, showing a broad interest
 across different industries.
 - **Job Title Variety:** There's a high diversity in job titles, from Data Analyst to Director of Analytics, reflecting varied roles and specializations within data analytics.
 
-![Top Paying Roles](assets\top_10_job_salaries.png)
+![Top Paying Roles](assets/top_10_job_salaries.png)
 
 *Bar graph visualizing the salary for the top 10
 salaries for data analysts; ChatGPT generated this
