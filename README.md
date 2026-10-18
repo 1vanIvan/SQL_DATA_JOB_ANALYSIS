@@ -21,7 +21,6 @@ analysts?
 salaries?
 5. What are the most optimal skills to learn?
 6. What are the top 10 countries with the highest demand for data analyst?
-7. What is the most in-demand skill per country?
 
 # Tools I Used
 
@@ -297,13 +296,59 @@ LIMIT 25;
 
 *Table of the most optimal skills for data analyst sorted by salary*
 
-Here's a breakdown of the most optimal skills for Data Analysts in 2023:
+Here's a breakdown of the most optimal skills for Data Analysts in 2026:
 
 - **SQL** is the most demanded skill, appearing in 954 job postings, followed by **Python** (601) and **Tableau** (577). This highlights the importance of SQL and Python, alongside data visualization tools, for data analyst roles.
 
 - **Snowflake** offers the highest average salary at $107,994, despite appearing in only 113 job postings. **Python** ($99,156), **Tableau** ($99,336), and **SQL** ($98,751) also combine strong demand with competitive salaries.
 
 - **Excel** remains highly sought after despite a lower average salary of $87,314, while **Power BI** ($89,873) also shows solid demand. This suggests that combining foundational tools like Excel with SQL, Python, and specialized platforms such as Snowflake could help analysts strengthen their career prospects.
+
+### 6. Countries with high Data Analyst demand
+
+This query aims to identify the countries where Data Analysts are sought after. I have used both SQL and Excel to generate the report and visualize it.
+
+```sql
+SELECT
+    job_postings_fact.job_country,
+    COUNT(job_postings_fact.job_id) AS demand_count
+FROM
+    job_postings_fact
+WHERE
+    job_postings_fact.job_country IS NOT NULL
+    AND job_postings_fact.job_title_short = 'Data Analyst'
+    AND salary_year_avg BETWEEN 30000 AND 336500
+GROUP BY
+    job_postings_fact.job_country
+ORDER BY
+    demand_count DESC;
+```
+
+![Job Demand](assets/Global_Data_Analyst_Demand.png)
+
+*The count has been capped at 700. **The United States currently has a demand for 24,283** data analyst. This chart was generated using Microsoft Excel*
+
+
+| Country | Demand Count |
+|---|---:|
+| United States | 24,283 |
+| United Kingdom | 647 |
+| India | 297 |
+| United Arab Emirates | 254 |
+| Canada | 219 |
+| Sudan | 187 |
+| Malaysia | 130 |
+| Puerto Rico | 100 |
+| Poland | 97 |
+| Ireland | 82 |
+
+
+Below are some insights from this data:
+- **The United States dominates job demand**, with 24,283 postings, far exceeding the United Kingdom (647) and all other countries in the table.
+
+- **The UK, India, and the UAE follow**, but their job posting counts are significantly lower, suggesting that the US is the largest market represented in this dataset.
+
+- **Demand is geographically diverse**, with opportunities across North America, Europe, Asia, and the Middle East. However, the results reflect the dataset's job postings rather than the entire global job market.
 
 # What I Learned
 
@@ -318,7 +363,7 @@ and turned aggregate functions like COUNT() and AVG() into my data-summarizing s
 - **💡 Analytical Wizardry:** Leveled up my
 real-world puzzle-solving skills, turning
 questions into actionable, insightful SQL queries.
-
+- **❌ Removed Outlier:** Discovered the application of Inter-Quartile Range (IQR) in order to avoid skewed data.
 
 # Conclusions
 
@@ -330,7 +375,7 @@ emerged:
 1. **Top-Paying Data Analyst Jobs**: The
 highest-paying jobs for data analysts that allow
 remote work offer a wide range of salaries, the
-highest at $650,000!
+highest at $524,000!
 2. **Skills for Top-Paying Jobs**: High-paying
 data analyst jobs require advanced proficiency in
 SQL, suggesting it's a critical skill for earning
@@ -339,7 +384,7 @@ a top salary.
 demanded skill in the data analyst job market,
 thus making it essential for job seekers.
 4. **Skills with Higher Salaries**: Specialized
-skills, such as SVN and Solidity, are associated
+skills, such as TypeScript and GraphQL, are associated
 with the highest average salaries, indicating a
 premium on niche expertise.
 5. **Optimal Skills for Job Market Value**: SQL
