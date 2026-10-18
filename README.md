@@ -36,7 +36,7 @@ collaboration and project tracking.
 # Pre-analysis
 As the original database contains job postings with unusually high and low salary, I have determined the top and bottom 1% from the salary column using this SQL query:
 
-### Bottom 1% and Top 1% quartile for remote data analyst postings
+### Bottom 1% and Top 1% salary year average for remote data analyst postings
 ```sql
 SELECT Q.salary_quartile, MAX(Q.salary_year_avg) AS quartile_break
 FROM
@@ -51,14 +51,14 @@ GROUP BY Q.salary_quartile;
 ```
 
 The results:
-| salary_quartile % | quartile_value |
+| salary_ntile % | value |
 |:---|---:|
 | 1 | 31,500 |
 | 99 | 524,000 |
 
 
 
-### Bottom 1% and Top 1% quartile for data analyst postings (remote/non-remote)
+### Bottom 1% and Top 1% of the salary_year_avg column from data analyst postings (remote/non-remote)
 ```sql
 SELECT Q.salary_quartile, MAX(Q.salary_year_avg) AS quartile_break
 FROM
@@ -72,7 +72,7 @@ GROUP BY Q.salary_quartile;
 ```
 
 The results:
-| salary_quartile % | quartile_value |
+| salary_ntile % | value |
 |:---|---:|
 | 1 | 30,000 |
 | 99 | 336,500 |
