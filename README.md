@@ -1,5 +1,3 @@
-**This is a practice project. The contents below are derived from Luke Barousse's SQL for Data Analytics course**
-
 # Introduction
 This project aims to provide 📊 insights on the data job market. Particularly the 💰 top-paying jobs, 🔥 in-demand skills, 📈 where high demand meets salary, and top job and skill demand by 🌍 country in data analytics.
 
